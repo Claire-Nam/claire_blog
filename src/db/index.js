@@ -1,23 +1,24 @@
-import dotenv from "dotenv";
-import { createRequire } from "module";
+// import dotenv from "dotenv";
+// import { Sequelize } from "sequelize";
+// import UserModels from "./models/user-model";
+// import PostModels from "./models/post-model";
 
-const require = createRequire(import.meta.url);
-const mysql = require("mysql2");
+// dotenv.config();
 
-dotenv.config();
+// // db 연결
+// const sequelize = new Sequelize(
+//   `mysql://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`
+// );
 
-// db 연결
-const connection = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-});
+// sequelize
+//   .authenticate()
+//   .then(() => {
+//     console.log("DB 연결 성공");
+//   })
+//   .catch(err => {
+//     console.log("DB 연결 실패: ", err);
+//   });
 
-connection.connect(err => {
-  if (err) {
-    console.log("DB연결 실패: ", err);
-    return;
-  }
-  console.log("DB연결 성공");
-});
+// // 모델 간 관계 정의
+// PostModels.belongsTo(UserModels, { foreignKey: "author_id" });
+// UserModels.hasMany(PostModels, { foreignKey: "author_id" });
